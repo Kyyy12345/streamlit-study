@@ -52,10 +52,10 @@ fare_range = st.sidebar.slider(
 
 # ── 필터 적용 ─────────────────────────────────────────────
 filtered = df[
-    df["Age"].between(*age_range) &
+   (df["Age"].between(*age_range) | df["Age"].isna()) &
     df["Pclass"].isin(selected_pclass) &
     df["Fare"].between(*fare_range)
-].dropna(subset=["Age"])
+]
 
 if selected_gender != "전체":
     filtered = filtered[filtered["Sex"] == selected_gender]
