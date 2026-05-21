@@ -64,7 +64,7 @@ filtered = df[
     df["AgeGroup"].isin(selected_age_groups) &
     df["Pclass"].isin(selected_pclass) &
     df["Fare"].between(*fare_range)
-].dropna(subset=["Age"])
+]
 
 # 생존자만 보기 토글 기능 반영
 if show_survived:
